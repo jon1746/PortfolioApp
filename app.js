@@ -5,10 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var page2Router = require('./routes/whatido');
-var page3Router = require('./routes/galleryofmywork');
-var page4Router = require('./routes/getaquote');
-var page5Router = require('./routes/contactme');
+var whatidoRouter = require('./routes/whatido');
+var galleryofmyworkRouter = require('./routes/galleryofmywork');
+var getaquoteRouter = require('./routes/getaquote');
+var contactmeRouter = require('./routes/contactme');
+var servicesRouter = require('./routes/services');
+var contactmeRouterouter = require('./routes/contact');
+var quoteRouter = require('./routes/quote');
+
 var app = express();
 
 // view engine setup
@@ -20,12 +24,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+//User pages
 app.use('/', indexRouter);
-app.use('/whatido', whatido);
-app.use('/galleryofmywork', galleryofmywork);
-app.use('/getaquote', getaquote);
-app.use('/contactme', contactme);
+app.use('/whatido', whatidoRouter);
+app.use('/galleryofmywork', galleryofmyworkRouter);
+app.use('/getaquote', getaquoteRouter);
+app.use('/contactme', contactmeRouter);
+//Service calls to db
+
+//get a list of services provided
+app.use('/services', services);
+//my a contact request
+app.use('/contact', contact);
+//get a quote for a project
+app.use('/quote', quote);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
