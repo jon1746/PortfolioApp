@@ -10,7 +10,7 @@ var galleryofmyworkRouter = require('./routes/galleryofmywork');
 var getaquoteRouter = require('./routes/getaquote');
 var contactmeRouter = require('./routes/contactme');
 var servicesRouter = require('./routes/services');
-var contactmeRouterouter = require('./routes/contact');
+var contactRouter = require('./routes/contact');
 var quoteRouter = require('./routes/quote');
 
 var app = express();
@@ -33,11 +33,11 @@ app.use('/contactme', contactmeRouter);
 //Service calls to db
 
 //get a list of services provided
-app.use('/services', services);
+app.use('/services', servicesRouter);
 //my a contact request
-app.use('/contact', contact);
+app.use('/contact', contactRouter);
 //get a quote for a project
-app.use('/quote', quote);
+app.use('/quote', quoteRouter);
 
 
 // catch 404 and forward to error handler
