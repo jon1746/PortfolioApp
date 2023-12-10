@@ -1,0 +1,36 @@
+/* Reset some default styles and provide basic styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Style the navigation list */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items (menu items) */
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+/* Style the links (menu items) */
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Add hover effect for links */
+nav ul li a:hover {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 3px;
+}
