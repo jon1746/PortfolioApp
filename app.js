@@ -20,7 +20,7 @@ app.get('/gallery', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'gallery.html'));
 });
 
-app.get('/request-quote', (req, res) => {
+app.get('/equest-quote', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'request-quote.html'));
 });
 
