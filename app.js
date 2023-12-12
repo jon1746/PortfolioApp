@@ -33,7 +33,7 @@ app.get('/contact-me', (req, res) => {
 
 app.post('/api/create-message', (req, res) => {
 
-    console.log("You Made it here", req.body);
+  
     name=req.body.name;
     email=req.body.email;
     message=req.body.message;
@@ -43,8 +43,7 @@ app.post('/api/create-message', (req, res) => {
 
 app.post('/api/create-quote', (req, res) => {
     
-
-    console.log("You Made it here", req.body);
+console.log("You Made it here", req.body);
     name=req.body.name;
     email=req.body.email;
     message=req.body.message;

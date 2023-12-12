@@ -79,9 +79,8 @@
               email: document.getElementById("email").value,
               message: document.getElementById("message").value,
           };
-          console.log(formData);
           // Send a POST request to the API endpoint
-          console.log(JSON.stringify(formData));
+         
           fetch("/api/create-message", {
               method: "POST",
               headers: {
