@@ -28,5 +28,13 @@ app.get('/contact-me', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'contact-me.html'));
 });
 
+app.post('api/createMessage', (req, res) => {
+  //  res.sendFile(path.join(__dirname, 'views', 'contact-me.html'));
+  });
+
+  app.post('api/createQuote', (req, res) => {
+    //  res.sendFile(path.join(__dirname, 'views', 'contact-me.html'));
+       
+  });
 // Start the server
 app.listen(port, () => console.log(`Server listening on port ${port}`));
