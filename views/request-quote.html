@@ -10,7 +10,7 @@
 <body>
 <header class="header">
   <div class="logo">
-    <a href="#">My Website</a>
+    <a href="/">My Website</a>
   </div>
   <nav class="nav">
     <ul class="nav-links">
@@ -49,8 +49,9 @@
                 email: document.getElementById("email").value,
                 message: document.getElementById("message").value,
             };
-
+            console.log(formData);
             // Send a POST request to the API endpoint
+            console.log(JSON.stringify(formData));
             fetch("/api/create-quote", {
                 method: "POST",
                 headers: {

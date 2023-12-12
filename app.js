@@ -1,8 +1,11 @@
 const express = require('express');
 const path = require('path');
-
+var bodyParser = require('body-parser')
 const app = express();
 const port = process.env.PORT || 3000;
+app.use(bodyParser.json())
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 // Define static assets directory
 app.use(express.static(path.join(__dirname, 'public')));
@@ -28,13 +31,25 @@ app.get('/contact-me', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'contact-me.html'));
 });
 
-app.post('api/createMessage', (req, res) => {
-  //  res.sendFile(path.join(__dirname, 'views', 'contact-me.html'));
+app.post('/api/create-message', (req, res) => {
+
+    console.log("You Made it here", req.body);
+    name=req.body.name;
+    email=req.body.email;
+    message=req.body.message;
+    res.json({ name, email, message });
+ 
   });
 
-  app.post('api/createQuote', (req, res) => {
-    //  res.sendFile(path.join(__dirname, 'views', 'contact-me.html'));
-       
-  });
+app.post('/api/create-quote', (req, res) => {
+    
+
+    console.log("You Made it here", req.body);
+    name=req.body.name;
+    email=req.body.email;
+    message=req.body.message;
+    res.json({ name, email, message });
+
+});
 // Start the server
 app.listen(port, () => console.log(`Server listening on port ${port}`));
