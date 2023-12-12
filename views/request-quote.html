@@ -32,7 +32,8 @@
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-
+            <fieldset>
+                <legend>Project Type</legend>
             <label>
                 <input type="radio" name="quotetype" value="byhour"> By Hour
             </label>
@@ -45,6 +46,11 @@
                 <input type="radio" name="quotetype" value="unknown"> Unknown
             </label>
             <br>
+            </fieldset> 
+            <fieldset>
+                <legend>Services</legend>
+                
+            
             <label>
                 <input type="checkbox" name="coding" value="Coding">
                 Coding
@@ -55,11 +61,13 @@
                 <input type="checkbox" name="design" value="Design">
                 Design
             </label>
+        
             <br>
             <label>
                 <input type="checkbox" name="testing" value="Testing">
                 Testing
             </label>
+        </fieldset>
             <br>
 
             <label for="worktype">Choose work type:</label>
