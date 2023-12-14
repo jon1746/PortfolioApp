@@ -35,33 +35,23 @@
             <fieldset>
                 <legend>Project Type</legend>
             <label>
-                <input type="radio" name="quotetype" value="byhour"> By Hour
+                <input type="radio"  name="quotetype" value="byhour"> By Hour
             </label>
             <label>
                 <input type="radio" name="quotetype" value="fixedbid"> Fixed Bid
             </label>
             <label>
-                <input type="radio" name="quotetype" value="unknown"> Unknown
+                <input type="radio"  name="quotetype" value="unknown"> Unknown
             </label>
             </fieldset> 
             <fieldset>
                 <legend>Services</legend>
-    
             <label>
-                <input type="checkbox" name="coding" value="Coding">
-                Coding
+                <input type="checkbox" id="coding" name="services" value="coding"> Coding
+                <input type="checkbox" id="design" name="services" value="design"> Design
+                <input type="checkbox" id="testing" name="services" value="testing"> Testing
             </label>
-    
-            <label>
-                <input type="checkbox" name="design" value="Design">
-                Design
-            </label>
-        
-
-            <label>
-                <input type="checkbox" name="testing" value="Testing">
-                Testing
-            </label>
+            
         </fieldset>
             <br>
 
@@ -72,10 +62,8 @@
                 <option value="hybrid">Hybrid</option>
                
             </select>
+
             <br>
-            <br
-
-
 
             <label for="project">Probject Description:</label>
             <textarea id="project" name="project" rows="10" required></textarea>
@@ -90,11 +78,40 @@
             event.preventDefault(); // Prevent the form from submitting normally
 
             // Serialize form data into a JSON object
+
+
+            var radioButtons = document.getElementsByName("quotetype");
+
+        // Loop through the radio buttons to find the selected one
+            var quoteType;
+            for (var i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].checked) {
+            // The value of the selected radio button
+            quoteType = radioButtons[i].value;
+      
+            break; // Exit the loop since we found the selected one
+            }
+            }
+
+            var checkboxes = document.getElementsByName("services");
+             services = [];
+            for (var i = 0; i < checkboxes.length; i++) {
+                console.log(checkboxes[i].value);
+                if (checkboxes[i].checked) {
+                    // Add the value of the selected checkbox to the array
+                    services.push(checkboxes[i].value);
+               }
+            }
             const formData = {
                 name: document.getElementById("name").value,
+                quoteType: quoteType,
+                services:services,
                 email: document.getElementById("email").value,
-                message: document.getElementById("message").value,
+                worktype: document.getElementById("worktype").value,
+                project: document.getElementById("project").value,
+            
             };
+
             fetch("/api/create-quote", {
                 method: "POST",
                 headers: {

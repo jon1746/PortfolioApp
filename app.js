@@ -38,16 +38,22 @@ app.post('/api/create-message', (req, res) => {
     email=req.body.email;
     message=req.body.message;
     res.json({ name, email, message });
+    //could send out an email from here
  
   });
 
 app.post('/api/create-quote', (req, res) => {
     
-
+console.log(req.body);
     name=req.body.name;
     email=req.body.email;
-    message=req.body.message;
-    res.json({ name, email, message });
+    quotetype=req.body.quotetype;
+    services=req.body.services;
+    project=req.body.project;
+    console.log( name, email, quotetype, services,project);
+    res.json({ name, email, quotetype, services,project});
+    //could save the data and compute a quote from here
+   
 
 });
 // Start the server
